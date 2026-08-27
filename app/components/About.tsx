@@ -63,20 +63,19 @@ export default function About() {
             className="space-y-4 text-gray-400 leading-relaxed"
           >
             <p>
-              Soy Sebastián Morales, desarrollador Full Stack chileno con foco en
-              construir productos reales. Trabajo con React y Python en el día a
-              día, y me apasiona la intersección entre el desarrollo web y la
-              inteligencia artificial.
+              Soy Sebastián Morales, desarrollador Full Stack chileno especializado en
+              crear sistemas reales y funcionales. Trabajo con React, Python y bases de
+              datos relacionales, con foco en arquitectura limpia y experiencia de usuario.
             </p>
             <p>
-              He desarrollado una plataforma de e-commerce completa para PYMEs
-              chilenas con integración a Mercado Pago, y dos asistentes
-              personales con IA — uno 100% offline con Ollama y otro conectado
-              a Groq con control de Spotify, correo y comandos del sistema.
+              He diseñado y desarrollado NEXO, un sistema de gestión integral para
+              comercio minorista con control de inventario, ventas y análisis en tiempo real.
+              También creé NOTE, una plataforma de gestión de préstamos completamente funcional,
+              y dos asistentes con IA — uno 100% offline con Ollama y otro en la nube con Groq.
             </p>
             <p>
-              Me gusta resolver problemas concretos con código limpio y
-              escalable. Siempre aprendiendo, siempre construyendo.
+              Me especializo en traducir requisitos complejos en código limpio, escalable
+              y mantenible. Estoy en tercer año de Ingeniería en Sistemas en INACAP.
             </p>
 
             <div className="flex flex-wrap gap-2 pt-4">

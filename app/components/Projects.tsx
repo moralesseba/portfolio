@@ -4,16 +4,28 @@ import { motion, useInView } from "framer-motion";
 
 const projects = [
   {
-    title: "PymePro FullStack",
+    title: "NEXO — Sistema de Gestión",
     description:
-      "Plataforma de e-commerce para PYMEs chilenas. Catálogo público, autenticación JWT, CRUD protegido, dashboard admin e integración con Mercado Pago.",
+      "Sistema de gestión integral para comercio minorista. Incluye control de inventario, registro de ventas y compras, gestión de proveedores, dashboard analítico y reportes automatizados. Diseñado y desarrollado desde cero.",
     tags: ["React 19", "Vite", "Express 5", "PostgreSQL", "Supabase", "JWT", "Tailwind CSS"],
-    github: "https://github.com/moralesseba/pyme-pro-fullstack",
+    github: "https://github.com/moralesseba",
     live: "#",
     featured: true,
     color: "from-violet-500/10 to-indigo-500/5",
     border: "hover:border-violet-500/50",
     icon: "🛍️",
+  },
+  {
+    title: "NOTE — Plataforma de Préstamos",
+    description:
+      "Aplicación web completa para gestión de préstamos. Dashboard intuitivo con cálculo automático de intereses, cronogramas de vencimiento, recordatorios visuales y gestión de estados. Completamente funcional y desplegada.",
+    tags: ["React 18", "Vite", "Firebase", "Firestore", "Tailwind CSS", "Google Auth"],
+    github: "https://github.com/moralesseba",
+    live: "#",
+    featured: true,
+    color: "from-blue-500/10 to-cyan-500/5",
+    border: "hover:border-blue-500/50",
+    icon: "💰",
   },
   {
     title: "Amber — Asistente IA Local",

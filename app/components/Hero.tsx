@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const roles = ["Full Stack Developer", "Python & AI Builder", "Problem Solver", "Creador de Asistentes IA"];
+const roles = ["Full Stack Developer", "Creador de Sistemas", "Python & AI Builder", "Problem Solver"];
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -75,8 +75,8 @@ export default function Hero() {
         </motion.div>
 
         <motion.p variants={item} className="text-gray-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-          Desarrollador Full Stack apasionado por la IA. Construyo desde
-          e-commerce hasta asistentes inteligentes con Python, React y LLMs.
+          Desarrollador Full Stack chileno. He construido sistemas de gestión inteligentes,
+          plataformas de préstamos y asistentes IA con React, Python y LLMs.
         </motion.p>
 
         <motion.div variants={item} className="flex flex-wrap gap-4 justify-center">
