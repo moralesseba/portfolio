@@ -36,17 +36,39 @@ const socials = [
 export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "", company: "" });
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSent(true);
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        const data: { error?: string } = await res.json();
+        throw new Error(data.error ?? "No se pudo enviar el mensaje.");
+      }
+
+      setSent(true);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "No se pudo enviar el mensaje.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   const inputClass = (name: string) =>
@@ -124,7 +146,7 @@ export default function Contact() {
                   <p className="text-white font-semibold text-xl">¡Mensaje enviado!</p>
                   <p className="text-gray-400 text-sm">Te responderé lo antes posible.</p>
                   <button
-                    onClick={() => { setSent(false); setForm({ name: "", email: "", message: "" }); }}
+                    onClick={() => { setSent(false); setForm({ name: "", email: "", message: "", company: "" }); }}
                     className="text-violet-400 text-sm hover:underline"
                   >
                     Enviar otro mensaje
@@ -132,6 +154,21 @@ export default function Contact() {
                 </motion.div>
               ) : (
                 <motion.form key="form" onSubmit={handleSubmit} className="space-y-4">
+                  <input
+                    type="text"
+                    name="company"
+                    value={form.company}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
+                    aria-hidden="true"
+                  />
+                  {error && (
+                    <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-2.5">
+                      {error}
+                    </p>
+                  )}
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs text-gray-500 mb-1.5 uppercase tracking-wider">Nombre</label>
@@ -177,11 +214,12 @@ export default function Contact() {
                   </div>
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(139,92,246,0.35)" }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full py-3.5 bg-violet-600 hover:bg-violet-500 text-white font-medium rounded-xl transition-colors"
+                    disabled={submitting}
+                    whileHover={submitting ? {} : { scale: 1.02, boxShadow: "0 0 25px rgba(139,92,246,0.35)" }}
+                    whileTap={submitting ? {} : { scale: 0.98 }}
+                    className="w-full py-3.5 bg-violet-600 hover:bg-violet-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium rounded-xl transition-colors"
                   >
-                    Enviar mensaje →
+                    {submitting ? "Enviando..." : "Enviar mensaje →"}
                   </motion.button>
                 </motion.form>
               )}
