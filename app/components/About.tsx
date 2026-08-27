@@ -1,17 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-
-const skills = [
-  { name: "Python / Django", level: 88 },
-  { name: "React / Vite", level: 85 },
-  { name: "Node.js / Express", level: 82 },
-  { name: "PostgreSQL / Supabase", level: 80 },
-  { name: "IA / LLMs (Groq, Ollama)", level: 78 },
-  { name: "Tailwind CSS", level: 90 },
-];
-
-const badges = ["JWT", "REST APIs", "SQLite", "Git", "Selenium", "Spotipy", "Web Speech API", "Mercado Pago"];
+import { profile } from "../data/profile";
 
 function SkillBar({ name, level, index }: { name: string; level: number; index: number }) {
   const ref = useRef(null);
@@ -62,24 +52,12 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="space-y-4 text-gray-400 leading-relaxed"
           >
-            <p>
-              Soy Sebastián Morales, desarrollador Full Stack chileno especializado en
-              crear sistemas reales y funcionales. Trabajo con React, Python y bases de
-              datos relacionales, con foco en arquitectura limpia y experiencia de usuario.
-            </p>
-            <p>
-              He diseñado y desarrollado NEXO, un sistema de gestión integral para
-              comercio minorista con control de inventario, ventas y análisis en tiempo real.
-              También creé NOTE, una plataforma de gestión de préstamos completamente funcional,
-              y dos asistentes con IA — uno 100% offline con Ollama y otro en la nube con Groq.
-            </p>
-            <p>
-              Me especializo en traducir requisitos complejos en código limpio, escalable
-              y mantenible. Estoy en tercer año de Ingeniería en Sistemas en INACAP.
-            </p>
+            {profile.about.paragraphs.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
 
             <div className="flex flex-wrap gap-2 pt-4">
-              {badges.map((b) => (
+              {profile.about.badges.map((b) => (
                 <motion.span
                   key={b}
                   whileHover={{ scale: 1.1, backgroundColor: "rgba(139,92,246,0.2)" }}
@@ -99,7 +77,7 @@ export default function About() {
             className="space-y-5"
           >
             <h3 className="text-white font-semibold mb-6">Nivel de habilidades</h3>
-            {skills.map((s, i) => (
+            {profile.about.skills.map((s, i) => (
               <SkillBar key={s.name} name={s.name} level={s.level} index={i} />
             ))}
           </motion.div>

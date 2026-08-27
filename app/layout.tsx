@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { profile } from "./data/profile";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 
 export const metadata: Metadata = {
-  title: "Sebastián Morales — Full Stack Developer",
-  description: "Desarrollador Full Stack chileno especializado en React, Python, Django e inteligencia artificial.",
+  title: profile.meta.title,
+  description: profile.meta.description,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

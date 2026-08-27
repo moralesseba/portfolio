@@ -1,8 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-
-const roles = ["Full Stack Developer", "Creador de Sistemas", "Python & AI Builder", "Problem Solver"];
+import { profile } from "../data/profile";
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -10,7 +9,7 @@ export default function Hero() {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const current = roles[roleIndex];
+    const current = profile.hero.roles[roleIndex];
     let timeout: ReturnType<typeof setTimeout>;
 
     if (!deleting && displayed.length < current.length) {
@@ -21,7 +20,7 @@ export default function Hero() {
       timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length - 1)), 40);
     } else if (deleting && displayed.length === 0) {
       setDeleting(false);
-      setRoleIndex((i) => (i + 1) % roles.length);
+      setRoleIndex((i) => (i + 1) % profile.hero.roles.length);
     }
     return () => clearTimeout(timeout);
   }, [displayed, deleting, roleIndex]);
@@ -62,11 +61,11 @@ export default function Hero() {
       <motion.div variants={container} initial="hidden" animate="show" className="max-w-3xl">
         <motion.div variants={item} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm font-mono mb-8">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          Disponible para proyectos
+          {profile.hero.badge}
         </motion.div>
 
         <motion.h1 variants={item} className="text-5xl md:text-7xl font-bold text-white mb-5 tracking-tight">
-          Sebastián Morales
+          {profile.name}
         </motion.h1>
 
         <motion.div variants={item} className="text-2xl md:text-3xl text-gray-400 mb-6 h-10 flex items-center justify-center gap-2">
@@ -75,8 +74,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.p variants={item} className="text-gray-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-          Desarrollador Full Stack chileno. He construido sistemas de gestión inteligentes,
-          plataformas de préstamos y asistentes IA con React, Python y LLMs.
+          {profile.hero.bio}
         </motion.p>
 
         <motion.div variants={item} className="flex flex-wrap gap-4 justify-center">

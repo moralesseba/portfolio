@@ -1,59 +1,9 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { profile, type Project } from "../data/profile";
 
-const projects = [
-  {
-    title: "NEXO — Sistema de Gestión",
-    description:
-      "Sistema de gestión integral para comercio minorista. Incluye control de inventario, registro de ventas y compras, gestión de proveedores, dashboard analítico y reportes automatizados. Diseñado y desarrollado desde cero.",
-    tags: ["React 19", "Vite", "Express 5", "PostgreSQL", "Supabase", "JWT", "Tailwind CSS"],
-    github: "https://github.com/moralesseba",
-    live: "#",
-    featured: true,
-    color: "from-violet-500/10 to-indigo-500/5",
-    border: "hover:border-violet-500/50",
-    icon: "🛍️",
-  },
-  {
-    title: "NOTE — Plataforma de Préstamos",
-    description:
-      "Aplicación web completa para gestión de préstamos. Dashboard intuitivo con cálculo automático de intereses, cronogramas de vencimiento, recordatorios visuales y gestión de estados. Completamente funcional y desplegada.",
-    tags: ["React 18", "Vite", "Firebase", "Firestore", "Tailwind CSS", "Google Auth"],
-    github: "https://github.com/moralesseba",
-    live: "#",
-    featured: true,
-    color: "from-blue-500/10 to-cyan-500/5",
-    border: "hover:border-blue-500/50",
-    icon: "💰",
-  },
-  {
-    title: "Amber — Asistente IA Local",
-    description:
-      "Asistente personal 100% offline con IA local (Ollama + Llama 3.2), memoria episódica y semántica por usuario, voz real TTS/STT, multiusuario con roles y seguridad de nivel empresarial.",
-    tags: ["Python", "Django", "Ollama", "Llama 3.2", "pyttsx3", "SQLite"],
-    github: "https://github.com/moralesseba",
-    live: "#",
-    featured: false,
-    color: "from-amber-500/10 to-orange-500/5",
-    border: "hover:border-amber-500/50",
-    icon: "🧠",
-  },
-  {
-    title: "Amy v4.0 — Asistente Personal",
-    description:
-      "Asistente inteligente con IA conversacional (Groq/Llama 3.3 70B), memoria a largo plazo, control de Spotify, envío de correos, búsqueda en Wikipedia, comandos de sistema y voz bidireccional.",
-    tags: ["Python", "Django", "Groq API", "Spotipy", "Selenium", "SQLite", "Web Speech API"],
-    github: "https://github.com/moralesseba",
-    live: "#",
-    featured: false,
-    color: "from-pink-500/10 to-rose-500/5",
-    border: "hover:border-pink-500/50",
-    icon: "✨",
-  },
-];
-
-function ProjectCard({ project, index }: { project: (typeof projects)[0]; index: number }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -141,7 +91,7 @@ export default function Projects() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {projects.map((p, i) => (
+          {profile.projects.map((p, i) => (
             <ProjectCard key={p.title} project={p} index={i} />
           ))}
         </div>
