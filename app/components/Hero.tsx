@@ -32,7 +32,7 @@ export default function Hero() {
   };
   const item = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   return (
@@ -41,12 +41,12 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10">
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 8, repeat: Infinity }}
           className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-violet-600/20 blur-3xl"
         />
         <motion.div
           animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          transition={{ duration: 10, repeat: Infinity, delay: 2 }}
           className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-indigo-600/15 blur-3xl"
         />
         {/* Grid pattern */}
@@ -102,7 +102,7 @@ export default function Hero() {
         <motion.div
           variants={item}
           animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 2, repeat: Infinity }}
           className="mt-20 flex flex-col items-center gap-2 text-gray-600"
         >
           <span className="text-xs tracking-widest uppercase">Scroll</span>
