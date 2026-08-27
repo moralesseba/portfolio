@@ -24,18 +24,18 @@ export const profile = {
   meta: {
     title: "Sebastián Morales — Full Stack Developer",
     description:
-      "Desarrollador Full Stack chileno especializado en React, Python, Django e inteligencia artificial.",
+      "Desarrollador Full Stack especializado en React, Python, Django e inteligencia artificial.",
   },
 
   hero: {
     badge: "Disponible para proyectos",
     roles: ["Full Stack Developer", "Creador de Sistemas", "Python & AI Builder", "Problem Solver"],
-    bio: "Desarrollador Full Stack chileno. He construido sistemas de gestión inteligentes, plataformas de préstamos y asistentes IA con React, Python y LLMs.",
+    bio: "Desarrollador Full Stack. He construido sistemas de gestión inteligentes, plataformas de préstamos y asistentes IA con React, Python y LLMs.",
   },
 
   about: {
     paragraphs: [
-      "Soy Sebastián Morales, desarrollador Full Stack chileno especializado en crear sistemas reales y funcionales. Trabajo con React, Python y bases de datos relacionales, con foco en arquitectura limpia y experiencia de usuario.",
+      "Soy Sebastián Morales, desarrollador Full Stack especializado en crear sistemas reales y funcionales. Trabajo con React, Python y bases de datos relacionales, con foco en arquitectura limpia y experiencia de usuario.",
       "He diseñado y desarrollado NEXO, un sistema de gestión integral para comercio minorista con control de inventario, ventas y análisis en tiempo real. También creé NOTE, una plataforma de gestión de préstamos completamente funcional, y dos asistentes con IA — uno 100% offline con Ollama y otro en la nube con Groq.",
       "Me especializo en traducir requisitos complejos en código limpio, escalable y mantenible. Estoy en tercer año de Ingeniería en Sistemas en INACAP.",
     ],
@@ -57,7 +57,7 @@ export const profile = {
         "Sistema de gestión integral para comercio minorista. Incluye control de inventario, registro de ventas y compras, gestión de proveedores, dashboard analítico y reportes automatizados. Diseñado y desarrollado desde cero.",
       tags: ["React 19", "Vite", "Express 5", "PostgreSQL", "Supabase", "JWT", "Tailwind CSS"],
       github: "https://github.com/moralesseba",
-      live: "#",
+      live: "https://nexo-pyme.vercel.app/login",
       featured: true,
       color: "from-violet-500/10 to-indigo-500/5",
       border: "hover:border-violet-500/50",
@@ -68,8 +68,8 @@ export const profile = {
       description:
         "Aplicación web completa para gestión de préstamos. Dashboard intuitivo con cálculo automático de intereses, cronogramas de vencimiento, recordatorios visuales y gestión de estados. Completamente funcional y desplegada.",
       tags: ["React 18", "Vite", "Firebase", "Firestore", "Tailwind CSS", "Google Auth"],
-      github: "https://github.com/moralesseba",
-      live: "#",
+      github: "https://github.com/moralesseba/note-app",
+      live: "https://note-sm.vercel.app",
       featured: true,
       color: "from-blue-500/10 to-cyan-500/5",
       border: "hover:border-blue-500/50",
